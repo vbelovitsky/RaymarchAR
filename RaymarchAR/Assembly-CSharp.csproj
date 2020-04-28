@@ -53,50 +53,53 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MyScripts\FigureData.cs" />
-     <Compile Include="Assets\MyScripts\RayScript.cs" />
-     <Compile Include="Assets\MyScripts\onigiri\RayMarching.cs" />
-     <Compile Include="Assets\MyScripts\onigiri\SceneViewFilter.cs" />
-     <None Include="Assets\MyScripts\RayShader.shader" />
-     <None Include="Assets\MyScripts\artOfCode\Raymarch.shader" />
-     <None Include="Assets\MyScripts\Transparent.shader" />
-     <None Include="Assets\MyScripts\onigiri\RayMarching.shader" />
+     <Compile Include="Assets\MyCode\Scripts\ComputeRayScript.cs" />
+     <Compile Include="Assets\MyCode\Scripts\RayScript.cs" />
+     <Compile Include="Assets\MyCode\Scripts\RayShape.cs" />
+     <Compile Include="Assets\MyCode\Scripts\SceneViewFilter.cs" />
+     <Compile Include="Assets\MyCode\Scripts\Shape.cs" />
+     <None Include="Assets\MyCode\Shaders\RayShader.shader" />
+     <None Include="Assets\MyCode\Shaders\WireframeTransparent.shader" />
+     <None Include="Assets\MyCode\Shaders\Transparent.shader" />
+     <None Include="Assets\MyCode\Shaders\ComputeRayShader.compute" />
      <None Include="Assets\StreamingAssets\Vuforia\Raymarch.xml" />
+     <None Include="Assets\MyCode\Shaders\Wireframe.cginc" />
+     <None Include="Assets\MyCode\Shaders\FullTransparent_Old.shader" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="VuforiaScripts">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/VuforiaScripts.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/VuforiaScripts.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="VuforiaEditorScripts">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/VuforiaEditorScripts.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/VuforiaEditorScripts.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a8/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -267,7 +270,7 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a8/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
  <Reference Include="Vuforia.UnityExtensions">
- <HintPath>C:/Users/User/A/Education/_FCS/_Project/RaymarchAR/Library/PackageCache/com.ptc.vuforia.engine@8.5.9/Vuforia/Plugins/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+ <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/PackageCache/com.ptc.vuforia.engine@8.5.9/Vuforia/Plugins/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a8/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

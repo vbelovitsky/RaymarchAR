@@ -29,7 +29,7 @@
 # Visual Studio cache directory
 .vs/
 
-Temp/*
+RaymarchAR/Temp/*
 
 # Gradle cache directory
 .gradle/
