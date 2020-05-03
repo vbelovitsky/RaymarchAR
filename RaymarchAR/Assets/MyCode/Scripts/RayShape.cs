@@ -5,8 +5,8 @@ using UnityEngine;
 public class RayShape : MonoBehaviour
 {
 
-    public enum ShapeType {Sphere,Cube,Torus};
-    public enum Operation {None, Blend, Cut,Mask}
+    public enum ShapeType {Sphere, Cube, Torus, Prism, Cylinder};
+    public enum Operation {Union, Substraction, Intersection, Blend}
 
     public ShapeType shapeType;
     public Operation operation;

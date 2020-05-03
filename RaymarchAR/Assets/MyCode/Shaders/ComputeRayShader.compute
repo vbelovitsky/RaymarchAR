@@ -90,13 +90,14 @@ float4 Combine(float dstA, float dstB, float3 colourA, float3 colourB, int opera
     float dst = dstA;
     float3 colour = colourA;
 
+    // Union
     if (operation == 0) {
         if (dstB < dstA) {
             dst = dstB;
             colour = colourB;
         }
     }
-    // Cut
+    // Substraction
     else if (operation == 1) {
         // max(a,-b)
         if (-dstB > dst) {
@@ -104,7 +105,7 @@ float4 Combine(float dstA, float dstB, float3 colourA, float3 colourB, int opera
             colour = colourB;
         }
     }
-    // Mask
+    // Intersection
     else if (operation == 2) {
         // max(a,b)
         if (dstB > dst) {
@@ -114,7 +115,7 @@ float4 Combine(float dstA, float dstB, float3 colourA, float3 colourB, int opera
     }
     // Blend
     else if (operation == 3) {
-        float4 blend = Blend(dstA,dstB,colourA,colourB, blendStrength);
+        float4 blend = Blend(dstA, dstB, colourA, colourB, blendStrength);
         dst = blend.w;
         colour = blend.xyz;
     }
@@ -122,16 +123,28 @@ float4 Combine(float dstA, float dstB, float3 colourA, float3 colourB, int opera
     return float4(colour,dst);
 }
 
-float GetShapeDistance(Shape shape, float3 eye) {
+float GetShapeDistance(Shape shape, float3 eye)
+{
    
-    if (shape.shapeType == 0) {
+    if (shape.shapeType == 0)
+    {
         return SphereDistance(eye, shape.position, shape.size.x);
     }
-    else if (shape.shapeType == 1) {
+    else if (shape.shapeType == 1)
+    {
         return CubeDistance(eye, shape.position, shape.size);
     }
-    else if (shape.shapeType == 2) {
+    else if (shape.shapeType == 2)
+    {
         return TorusDistance(eye, shape.position, shape.size.x, shape.size.y);
+    }
+    else if(shape.shapeType == 3)
+    {
+        return PrismDistance(eye, shape.position, shape.size.xy);
+    }
+    else if(shape.shapeType == 4)
+    {
+        return CylinderDistance(eye, shape.position, shape.size.xy);
     }
 
     return maxDst;
