@@ -16,8 +16,10 @@ public class RayShape : MonoBehaviour
     [HideInInspector]
     public int numChildren;
 
-    public Vector3 Position {
-        get {
+    public Vector3 Position
+    {
+        get
+        {
             return transform.position;
         }
     }

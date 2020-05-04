@@ -5,8 +5,13 @@ ScriptsOnlyBuild:
     - RayShape
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     Vuforia.UnityExtensions.dll:
+    - Vuforia.AnchorBehaviour
+    - Vuforia.AnchorInputListenerBehaviour
+    - Vuforia.ContentPositioningBehaviour
     - Vuforia.ImageTargetBehaviour
+    - Vuforia.PlaneFinderBehaviour
     - Vuforia.TurnOffBehaviour
     - Vuforia.VuforiaBehaviour
     - Vuforia.VuforiaConfiguration
@@ -33,6 +38,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 72
       Script: {instanceID: 0}
     - Class: 81
@@ -48,7 +55,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11348}
     - Class: 114
+      Script: {instanceID: 11532}
+    - Class: 114
+      Script: {instanceID: 11534}
+    - Class: 114
+      Script: {instanceID: 11540}
+    - Class: 114
       Script: {instanceID: 11562}
+    - Class: 114
+      Script: {instanceID: 11578}
     - Class: 114
       Script: {instanceID: 11584}
     - Class: 114
@@ -1332,6 +1347,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeployStageOnce
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

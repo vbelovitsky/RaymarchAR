@@ -30,9 +30,9 @@ public class ComputeRayScript : MonoBehaviour
         }
     }
 
-    void OnRenderImage (RenderTexture source, RenderTexture destination) {
+    void OnRenderImage (RenderTexture source, RenderTexture destination)
+    {
         
-
         DetectTrackables();
         if(shapes.Count != 0)
         {
