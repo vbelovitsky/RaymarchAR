@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ShapePanelOpener : MonoBehaviour
 {
+
     public GameObject ShapePanel;
-    
     public int shapeIndex;
 
     public void TogglePanel()
@@ -17,6 +19,7 @@ public class ShapePanelOpener : MonoBehaviour
 
             if(!isActive)
             {
+                ShapePanel.SetActive(!isActive);
                 spm.SetData(shapeIndex);
             }
             else
@@ -26,9 +29,10 @@ public class ShapePanelOpener : MonoBehaviour
                     spm.SetData(shapeIndex);
                     isActive = false;
                 }
+                ShapePanel.SetActive(!isActive);
             }
-
-            ShapePanel.SetActive(!isActive);
+            
+            
         }
     }
 

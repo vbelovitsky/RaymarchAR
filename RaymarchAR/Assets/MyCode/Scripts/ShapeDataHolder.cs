@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 public class ShapeDataHolder : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    List<RayShape> shapes;
+
     void Start()
     {
-        
+        shapes = new List<RayShape>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetAllTrackables()
     {
-        
+        IEnumerable<TrackableBehaviour> trackables = TrackerManager.Instance.GetStateManager().GetTrackableBehaviours();
+        foreach(TrackableBehaviour behaviour in trackables)
+        {
+            shapes.Add(behaviour.GetComponentInChildren<RayShape>());
+        }
     }
 }

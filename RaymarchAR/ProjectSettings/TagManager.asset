@@ -6,6 +6,10 @@ TagManager:
   tags:
   - TargetFigure
   - Shape
+  - TypeDrop
+  - OperationDrop
+  - BlendSlider
+  - ColorSlider
   layers:
   - Default
   - TransparentFX
