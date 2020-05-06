@@ -12,7 +12,7 @@ public class RayShape : MonoBehaviour
 
     public ShapeType shapeType;
     public Operation operation;
-    public Color colour = Color.white;
+    public Color color = Color.white;
     [Range(0,1)]
     public float blendStrength;
     [HideInInspector]

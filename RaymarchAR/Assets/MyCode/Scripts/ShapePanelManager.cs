@@ -11,18 +11,18 @@ public class ShapePanelManager : MonoBehaviour
     public int Index { get; set; }
 
     List<RayShape> shapes;
-    GameObject TypeDrop;
-    GameObject OperationDrop;
-    GameObject ColorSlider;
-    GameObject BlendSlider;
+    GameObject typeDrop;
+    GameObject operationDrop;
+    GameObject colorSlider;
+    GameObject blendSlider;
 
     void InitElements()
     {
         Panel = this.gameObject;
-        TypeDrop = GameObject.FindGameObjectWithTag("TypeDrop");
-        OperationDrop = GameObject.FindGameObjectWithTag("OperationDrop");
-        ColorSlider = GameObject.FindGameObjectWithTag("ColorSlider");
-        BlendSlider = GameObject.FindGameObjectWithTag("BlendSlider");
+        typeDrop = GameObject.FindGameObjectWithTag("TypeDrop");
+        operationDrop = GameObject.FindGameObjectWithTag("OperationDrop");
+        colorSlider = GameObject.FindGameObjectWithTag("ColorSlider");
+        blendSlider = GameObject.FindGameObjectWithTag("BlendSlider");
         GetAllTrackables();
     }
 
@@ -46,8 +46,10 @@ public class ShapePanelManager : MonoBehaviour
 
         Index = index;
 
-        TypeDrop.GetComponent<ShapeTypeDrop>().SetOptions(shapes[index]);
-        OperationDrop.GetComponent<ShapeOperationDrop>().SetOptions(shapes[index]);
+        typeDrop.GetComponent<ShapeTypeDrop>().SetOptions(shapes[index]);
+        operationDrop.GetComponent<ShapeOperationDrop>().SetOptions(shapes[index]);
+        colorSlider.
+        GetComponent<ColorSlider>().SetData(shapes[index]);
         
         // Устанавливаем параметры формы
 

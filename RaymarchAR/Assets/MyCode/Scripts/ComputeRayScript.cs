@@ -86,10 +86,10 @@ public class ComputeRayScript : MonoBehaviour
         ShapeData[] shapeData = new ShapeData[shapes.Count];
         for (int i = 0; i < shapes.Count; i++) {
             var s = shapes[i];
-            Vector3 col = new Vector3 (s.colour.r, s.colour.g, s.colour.b);
+            Vector3 col = new Vector3 (s.color.r, s.color.g, s.color.b);
             shapeData[i] = new ShapeData () {
                 position = s.Position,
-                scale = s.Scale, colour = col,
+                scale = s.Scale, color = col,
                 shapeType = (int) s.shapeType,
                 operation = (int) s.operation,
                 blendStrength = s.blendStrength * 3,
@@ -127,7 +127,7 @@ public class ComputeRayScript : MonoBehaviour
     struct ShapeData {
         public Vector3 position;
         public Vector3 scale;
-        public Vector3 colour;
+        public Vector3 color;
         public int shapeType;
         public int operation;
         public float blendStrength;
