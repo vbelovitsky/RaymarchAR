@@ -10,14 +10,13 @@ public class ShapeOperationDrop : MonoBehaviour
     Dropdown dropdown;
     RayShape currentShape;
 
-    // Start is called before the first frame update
-    void Start()
+    void Init()
     {
         dropdown = this.gameObject.GetComponent<Dropdown>();
         dropdown.ClearOptions();
         dropdown.onValueChanged.AddListener(delegate{ OnClickHandler(dropdown); });
-        
-        dropdown.AddOptions(new List<string>(Enum.GetNames(typeof(Operation))));
+        string[] names = Enum.GetNames(typeof(Operation));
+        dropdown.AddOptions(new List<string>(names));
     }
 
     public void OnClickHandler(Dropdown drop)
@@ -30,8 +29,14 @@ public class ShapeOperationDrop : MonoBehaviour
 
     public void SetOptions(RayShape shape)
     {
+        if(dropdown == null)
+        {
+            Init();
+        }
+        
         currentShape = shape;
-        dropdown.SetValueWithoutNotify((int)shape.operation);
+        dropdown.
+        SetValueWithoutNotify((int)shape.operation);
     }
 
 }
