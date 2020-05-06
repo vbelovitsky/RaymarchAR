@@ -48,8 +48,8 @@ public class ShapePanelManager : MonoBehaviour
 
         typeDrop.GetComponent<ShapeTypeDrop>().SetOptions(shapes[index]);
         operationDrop.GetComponent<ShapeOperationDrop>().SetOptions(shapes[index]);
-        colorSlider.
-        GetComponent<ColorSlider>().SetData(shapes[index]);
+        colorSlider.GetComponent<ColorSlider>().SetData(shapes[index]);
+        blendSlider.GetComponent<BlendSlider>().SetData(shapes[index]);
         
         // Устанавливаем параметры формы
 

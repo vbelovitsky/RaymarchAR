@@ -39,7 +39,6 @@ public class ColorSlider : MonoBehaviour
         Color color = Color.HSVToRGB(value, 1, 1);
         sliderHandle.color = color;
         currentShape.color = color;
-        
     }
  
     private Texture2D ColorStrip (int density)
