@@ -1,11 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BlendSlider
+    - ColorSlider
     - ComputeRayScript
     - RayShape
-    - ShapeDropdown
+    - ShapeOperationDrop
     - ShapePanelManager
     - ShapePanelOpener
+    - ShapeTypeDrop
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -78,37 +81,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 11570}
+      Script: {instanceID: 11494}
     - Class: 114
-      Script: {instanceID: 11592}
+      Script: {instanceID: 11528}
     - Class: 114
-      Script: {instanceID: 11600}
+      Script: {instanceID: 11574}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11822}
+      Script: {instanceID: 11604}
     - Class: 114
-      Script: {instanceID: 12008}
+      Script: {instanceID: 11606}
+    - Class: 114
+      Script: {instanceID: 11826}
     - Class: 114
       Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12202}
+      Script: {instanceID: 12016}
     - Class: 114
-      Script: {instanceID: 12476}
+      Script: {instanceID: 12018}
     - Class: 114
-      Script: {instanceID: 12582}
+      Script: {instanceID: 12208}
     - Class: 114
-      Script: {instanceID: 12750}
+      Script: {instanceID: 12254}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12482}
     - Class: 114
-      Script: {instanceID: 12902}
+      Script: {instanceID: 12588}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 12756}
     - Class: 114
-      Script: {instanceID: 12938}
+      Script: {instanceID: 12898}
     - Class: 114
-      Script: {instanceID: 15670}
+      Script: {instanceID: 12908}
+    - Class: 114
+      Script: {instanceID: 12924}
+    - Class: 114
+      Script: {instanceID: 12944}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -332,6 +341,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: 1028c39545bcfa841aaab54121e69a47
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BlendSlider
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -342,6 +357,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShapeTypeDrop
   - hash:
       serializedVersion: 2
       Hash: 0077fc8e4fbae67f80e80ebd534de5a0
@@ -776,7 +797,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: d4453ed468298cf1b484a2bf4d7c7f33
+      Hash: f75878de1769d9489c7031b8409a95ce
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RayShape
@@ -786,6 +807,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: 8296f2042cc1a1b71766d3a71ccb804c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ColorSlider
   - hash:
       serializedVersion: 2
       Hash: 92da9881aed190e8bb74661bcd74aa2c
@@ -840,6 +867,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShapeOperationDrop
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -1398,13 +1431,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ShapeDropdown
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/User/A/Education/_FCS/_Project/testAR.apk
+  playerPath: C:/Users/User/A/Education/_FCS/_Project/RaymarchAR.apk
