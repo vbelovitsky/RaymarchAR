@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ShapeType {Sphere, Cube, Torus, Prism, Cylinder};
+public enum ShapeType {Sphere, Cube, Torus, Prism};
 public enum Operation {Union, Substract, Intersect, Blend}
 
 public class RayShape : MonoBehaviour
