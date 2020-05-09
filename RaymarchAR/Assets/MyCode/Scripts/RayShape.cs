@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ShapeType {Sphere, Cube, Torus, Prism, Cylinder};
-public enum Operation {Union, Substraction, Intersection, Blend}
+public enum Operation {Union, Substract, Intersect, Blend}
 
 public class RayShape : MonoBehaviour
 {

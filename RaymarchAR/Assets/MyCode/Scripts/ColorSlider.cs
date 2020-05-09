@@ -32,6 +32,7 @@ public class ColorSlider : MonoBehaviour
         float hue;
         Color.RGBToHSV(shape.color, out hue, out _, out _);
         OnValueChanged(hue);
+        slider.value = hue;
     }
  
     private void OnValueChanged(float value)

@@ -20,6 +20,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Mask
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
@@ -75,49 +76,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11256}
     - Class: 114
-      Script: {instanceID: 11356}
+      Script: {instanceID: 11358}
     - Class: 114
-      Script: {instanceID: 11376}
+      Script: {instanceID: 11378}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11496}
     - Class: 114
-      Script: {instanceID: 11528}
+      Script: {instanceID: 11530}
     - Class: 114
-      Script: {instanceID: 11574}
+      Script: {instanceID: 11576}
     - Class: 114
-      Script: {instanceID: 11596}
-    - Class: 114
-      Script: {instanceID: 11604}
+      Script: {instanceID: 11598}
     - Class: 114
       Script: {instanceID: 11606}
     - Class: 114
-      Script: {instanceID: 11826}
+      Script: {instanceID: 11608}
     - Class: 114
-      Script: {instanceID: 12012}
+      Script: {instanceID: 11828}
     - Class: 114
-      Script: {instanceID: 12016}
+      Script: {instanceID: 12014}
     - Class: 114
       Script: {instanceID: 12018}
     - Class: 114
-      Script: {instanceID: 12208}
+      Script: {instanceID: 12020}
     - Class: 114
-      Script: {instanceID: 12254}
+      Script: {instanceID: 12206}
     - Class: 114
-      Script: {instanceID: 12482}
+      Script: {instanceID: 12210}
     - Class: 114
-      Script: {instanceID: 12588}
+      Script: {instanceID: 12256}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12484}
     - Class: 114
-      Script: {instanceID: 12898}
+      Script: {instanceID: 12590}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12758}
     - Class: 114
-      Script: {instanceID: 12924}
+      Script: {instanceID: 12900}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12910}
+    - Class: 114
+      Script: {instanceID: 12926}
+    - Class: 114
+      Script: {instanceID: 12946}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -275,7 +278,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: a960f8ce76afb3056032e5926b294341
+      Hash: 5821cca79cce5d11bf000e4608e852fe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ComputeRayScript
@@ -1434,4 +1437,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/User/A/Education/_FCS/_Project/RaymarchAR.apk
+  playerPath: C:/Users/User/A/Education/_FCS/_Project/testAR.apk

@@ -10,6 +10,7 @@ TagManager:
   - OperationDrop
   - BlendSlider
   - ColorSlider
+  - SizePanel
   layers:
   - Default
   - TransparentFX

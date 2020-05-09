@@ -33,7 +33,7 @@ MonoBehaviour:
   deviceTracker:
     autoInitTracker: 1
     autoStartTracker: 1
-    arcoreRequirement: 2
+    arcoreRequirement: 1
     autoImportArcore: 1
   smartTerrain:
     autoInitTracker: 0

@@ -11,14 +11,8 @@ public class ShapeDataHolder : MonoBehaviour
     void Start()
     {
         shapes = new List<RayShape>();
+        //GetAllTrackables();
     }
 
-    public void GetAllTrackables()
-    {
-        IEnumerable<TrackableBehaviour> trackables = TrackerManager.Instance.GetStateManager().GetTrackableBehaviours();
-        foreach(TrackableBehaviour behaviour in trackables)
-        {
-            shapes.Add(behaviour.GetComponentInChildren<RayShape>());
-        }
-    }
+    
 }
