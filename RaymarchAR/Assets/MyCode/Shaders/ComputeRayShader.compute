@@ -7,7 +7,6 @@ float4x4 _CameraToWorld;
 float4x4 _CameraInverseProjection;
 
 float3 _Light;
-bool positionLight;
 
 static const float maxDst = 10;
 static const float maxSteps = 80;
@@ -18,20 +17,21 @@ struct Shape
 {
     float3 position;
     float3 size;
-    float3 colour;
+    float3 color;
     int shapeType;
     int operation;
     float blendStrength;
 };
-
-StructuredBuffer<Shape> shapes;
-int numShapes;
 
 struct Ray
 {
     float3 origin;
     float3 direction;
 };
+
+StructuredBuffer<Shape> shapes;
+int shapesNumber;
+
 
 float SphereDistance(float3 eye, float3 centre, float radius)
 {
@@ -81,50 +81,50 @@ Ray CreateCameraRay(float2 uv)
     return CreateRay(origin,direction);
 }
 
-float4 Blend( float a, float b, float3 colA, float3 colB, float k )
+float4 Blend(float a, float b, float3 colorA, float3 colorB, float k)
 {
-    float h = clamp( 0.5+0.5*(b-a)/k, 0.0, 1.0 );
-    float blendDst = lerp( b, a, h ) - k*h*(1.0-h);
-    float3 blendCol = lerp(colB,colA,h);
-    return float4(blendCol, blendDst);
+    float h = clamp(0.5 + 0.5 * (b-a)/k, 0.0, 1.0);
+    float bDst = lerp(b, a, h) - k*h*(1.0-h);
+    float3 bCol = lerp(colorB, colorA, h);
+    return float4(bCol, bDst);
 }
 
-float4 Combine(float dstA, float dstB, float3 colourA, float3 colourB, int operation, float blendStrength)
+float4 Combine(float dstA, float dstB, float3 colorA, float3 colorB, int operation, float blendStrength)
 {
     float dst = dstA;
-    float3 colour = colourA;
+    float3 color = colorA;
 
     // Union
     if (operation == 0) {
         if (dstB < dstA) {
             dst = dstB;
-            colour = colourB;
+            color = colorB;
         }
     }
-    // Substraction
+    // Substract
     else if (operation == 1) {
         // max(a,-b)
         if (-dstB > dst) {
             dst = -dstB;
-            colour = colourB;
+            color = colorB;
         }
     }
-    // Intersection
+    // Intersect
     else if (operation == 2) {
         // max(a,b)
         if (dstB > dst) {
             dst = dstB;
-            colour = colourB;
+            color = colorB;
         }
     }
     // Blend
     else if (operation == 3) {
-        float4 blend = Blend(dstA, dstB, colourA, colourB, blendStrength);
+        float4 blend = Blend(dstA, dstB, colorA, colorB, blendStrength);
         dst = blend.w;
-        colour = blend.xyz;
+        color = blend.xyz;
     }
 
-    return float4(colour,dst);
+    return float4(color,dst);
 }
 
 float GetShapeDistance(Shape shape, float3 eye)
@@ -153,31 +153,30 @@ float GetShapeDistance(Shape shape, float3 eye)
     return maxDst;
 }
 
-
-float4 SceneInfo(float3 eye)
+float4 SceneDst(float3 eye)
 {
     float globalDst = maxDst;
-    float3 globalColour = 1;
+    float3 globalColor = 1;
     
-    for (int i = 0; i < numShapes; i ++) {
+    for (int i = 0; i < shapesNumber; i ++) {
         Shape shape = shapes[i];
 
         float localDst = GetShapeDistance(shape,eye);
-        float3 localColour = shape.colour;
+        float3 localColor = shape.color;
         
-        float4 globalCombined = Combine(globalDst, localDst, globalColour, localColour, shape.operation, shape.blendStrength);
-        globalColour = globalCombined.xyz;
+        float4 globalCombined = Combine(globalDst, localDst, globalColor, localColor, shape.operation, shape.blendStrength);
+        globalColor = globalCombined.xyz;
         globalDst = globalCombined.w;        
     }
 
-    return float4(globalColour, globalDst);
+    return float4(globalColor, globalDst);
 }
 
-float3 EstimateNormal(float3 p)
+float3 CalculateNormal(float3 p)
 {
-    float x = SceneInfo(float3(p.x+epsilon,p.y,p.z)).w - SceneInfo(float3(p.x-epsilon,p.y,p.z)).w;
-    float y = SceneInfo(float3(p.x,p.y+epsilon,p.z)).w - SceneInfo(float3(p.x,p.y-epsilon,p.z)).w;
-    float z = SceneInfo(float3(p.x,p.y,p.z+epsilon)).w - SceneInfo(float3(p.x,p.y,p.z-epsilon)).w;
+    float x = SceneDst(float3(p.x+epsilon,p.y,p.z)).w - SceneDst(float3(p.x-epsilon,p.y,p.z)).w;
+    float y = SceneDst(float3(p.x,p.y+epsilon,p.z)).w - SceneDst(float3(p.x,p.y-epsilon,p.z)).w;
+    float z = SceneDst(float3(p.x,p.y,p.z+epsilon)).w - SceneDst(float3(p.x,p.y,p.z-epsilon)).w;
     return normalize(float3(x,y,z));
 }
 
@@ -185,13 +184,13 @@ float CalculateShadow(Ray ray, float dstToShadePoint)
 {
     float rayDst = 0;
     int marchSteps = 0;
-    float shadowIntensity = .2;
+    float shadowIntensity = 0.2;
     float brightness = 1;
 
     while (rayDst < dstToShadePoint) {
         marchSteps++;
-        float4 sceneInfo = SceneInfo(ray.origin);
-        float dst = sceneInfo.w;
+        float4 sceneDst = SceneDst(ray.origin);
+        float dst = sceneDst.w;
         
         if (dst <= epsilon) {
             return shadowIntensity;
@@ -213,30 +212,33 @@ void RayMarching(uint3 id, uint width, uint height)
     Ray ray = CreateCameraRay(uv);
     int marchSteps = 0;
     //rayDst < maxDst &&
-    while (marchSteps < maxSteps) {
+    //marchSteps < maxSteps
+    while (rayDst < maxDst)
+    {
         marchSteps++;
-        float4 sceneInfo = SceneInfo(ray.origin);
-        float dst = sceneInfo.w;
+        float4 sceneDst = SceneDst(ray.origin);
+        float dst = sceneDst.w;
         
         if (dst <= epsilon) {
+            // Light
             float3 pointOnSurface = ray.origin + ray.direction * dst;
-            float3 normal = EstimateNormal(pointOnSurface - ray.direction * epsilon);
-            float3 lightDir = (positionLight) ? normalize(_Light-ray.origin) : -_Light;
+            float3 normal = CalculateNormal(pointOnSurface - ray.direction * epsilon);
+            
+            float3 lightDir = -_Light;
             float lighting = saturate(saturate(dot(normal,lightDir)));
-            float3 col = sceneInfo.xyz;
+            float3 col = sceneDst.xyz;
             
             // Shadow
             float3 offsetPos = pointOnSurface + normal * shadowBias;
-            float3 dirToLight = (positionLight) ? normalize(_Light- offsetPos) : -_Light;
+            float3 dirToLight = -_Light;
 
             ray.origin = offsetPos;
             ray.direction = dirToLight;
 
-            float dstToLight = (positionLight) ? distance(offsetPos,_Light) : maxDst;
+            float dstToLight = maxDst;
             float shadow = CalculateShadow(ray, dstToLight);
 
             Destination[id.xy] = float4(col * lighting * shadow, 1);
-            //Destination[id.xy] = float4(col, 1);
 
             break;
         }
@@ -246,7 +248,7 @@ void RayMarching(uint3 id, uint width, uint height)
     }
 }
 
-[numthreads(32, 32, 1)]
+[numthreads(8, 8, 1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
     uint width, height;

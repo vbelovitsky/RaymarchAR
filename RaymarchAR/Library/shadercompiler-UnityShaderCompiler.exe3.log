@@ -2,10 +2,15 @@ Base path: 'C:/Program Files/Unity/Hub/Editor/2019.3.0a8/Editor/Data', plugins p
 Cmd: initializeCompiler
 Cmd: compileComputeKernel
   error: 1 plat 4 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
-  api=4 insize=7039 outsize=20972 ok=1
+  api=4 insize=7052 outsize=20522 ok=1
 Cmd: compileComputeKernel
-  error: 1 plat 9 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
-  api=9 insize=6971 outsize=47357 ok=1
-Unhandled exception: Protocol error - unexpected end of data (did the Editor crash?)
-
-Quitting shader compiler process
+  api=4 insize=6776 outsize=20502 ok=1
+Cmd: compileComputeKernel
+  error: 2 plat 4 at ComputeRayShader.compute(252): 'numthreads(X,Y,Z)' attribute expected, where 'X,Y,Z' are the dimensions of the thread group
+  error: 2 plat 4 at ComputeRayShader.compute(252): non-literal parameter(s) found for attribute numthreads
+  api=4 insize=6815 outsize=0 ok=0
+Cmd: compileComputeKernel
+  error: 2 plat 4 at ComputeRayShader.compute(252): the product of the arguments of numthreads(0,0,1) must be at least 1
+  api=4 insize=6822 outsize=0 ok=0
+Cmd: compileComputeKernel
+  api=4 insize=6774 outsize=20502 ok=1

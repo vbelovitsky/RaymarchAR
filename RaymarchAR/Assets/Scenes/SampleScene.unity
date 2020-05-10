@@ -1336,7 +1336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40.1, y: 1.32}
+  m_AnchoredPosition: {x: 40.100006, y: 1.3200073}
   m_SizeDelta: {x: -83.93, y: -36.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431855503
@@ -5716,8 +5716,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d771c3354b5abd47ab53159092100a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raymarching: {fileID: 7200000, guid: 5773504b515adf24a95c3d8cd8dd4770, type: 3}
-  cam: {fileID: 2063344141}
+  raymarchShader: {fileID: 7200000, guid: 5773504b515adf24a95c3d8cd8dd4770, type: 3}
+  camera: {fileID: 2063344141}
   lightSource: {fileID: 24573556}
 --- !u!1 &2067984142
 GameObject:
