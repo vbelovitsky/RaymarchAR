@@ -15,6 +15,7 @@ public class ShapePanelManager : MonoBehaviour
     GameObject operationDrop;
     GameObject colorSlider;
     GameObject blendSlider;
+    GameObject sizePanel;
 
     void InitElements()
     {
@@ -23,6 +24,8 @@ public class ShapePanelManager : MonoBehaviour
         operationDrop = GameObject.FindGameObjectWithTag("OperationDrop");
         colorSlider = GameObject.FindGameObjectWithTag("ColorSlider");
         blendSlider = GameObject.FindGameObjectWithTag("BlendSlider");
+        sizePanel = GameObject.FindGameObjectWithTag("SizePanel");
+
         GetAllTrackables();
     }
 
@@ -46,12 +49,17 @@ public class ShapePanelManager : MonoBehaviour
 
         Index = index;
 
-        typeDrop.GetComponent<ShapeTypeDrop>().SetOptions(shapes[index]);
+        ShapeTypeDrop stp = typeDrop.GetComponent<ShapeTypeDrop>();
+        stp.SetOptions(shapes[index]);
+
         operationDrop.GetComponent<ShapeOperationDrop>().SetOptions(shapes[index]);
         colorSlider.GetComponent<ColorSlider>().SetData(shapes[index]);
         blendSlider.GetComponent<BlendSlider>().SetData(shapes[index]);
-        
-        // Устанавливаем параметры формы
+
+        SizePanelManager spm = sizePanel.GetComponent<SizePanelManager>();
+        spm.SetData(shapes[index]);
+
+        stp.SetSizePanel(spm);
 
     }
 

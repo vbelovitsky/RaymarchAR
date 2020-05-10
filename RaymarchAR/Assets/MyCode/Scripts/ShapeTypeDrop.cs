@@ -10,6 +10,8 @@ public class ShapeTypeDrop : MonoBehaviour
     Dropdown dropdown;
     RayShape currentShape;
 
+    SizePanelManager sizePanel;
+
     void Init()
     {
         dropdown = this.gameObject.GetComponent<Dropdown>();
@@ -21,9 +23,15 @@ public class ShapeTypeDrop : MonoBehaviour
 
     public void OnClickHandler(Dropdown drop)
     {
-        if(currentShape != null){
+        if(currentShape != null)
+        {
             Array values = Enum.GetValues(typeof(ShapeType));
             currentShape.shapeType = (ShapeType)values.GetValue(drop.value);
+
+            if(sizePanel != null)
+            {
+                sizePanel.SetData(currentShape);
+            }
         }
     }
 
@@ -35,8 +43,12 @@ public class ShapeTypeDrop : MonoBehaviour
         }
         
         currentShape = shape;
-        dropdown.
-        SetValueWithoutNotify((int)shape.shapeType);
+        dropdown.SetValueWithoutNotify((int)shape.shapeType);
+    }
+
+    public void SetSizePanel(SizePanelManager spm)
+    {
+        sizePanel = spm;
     }
 
 }

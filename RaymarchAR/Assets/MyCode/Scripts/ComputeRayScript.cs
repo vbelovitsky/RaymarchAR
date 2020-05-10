@@ -82,7 +82,6 @@ public class ComputeRayScript : MonoBehaviour
                 shapeType = (int) s.shapeType,
                 operation = (int) s.operation,
                 blendStrength = s.blendStrength * 3,
-                numChildren = s.numChildren
             };
         }
 
@@ -123,11 +122,10 @@ public class ComputeRayScript : MonoBehaviour
         public int shapeType;
         public int operation;
         public float blendStrength;
-        public int numChildren;
 
         public static int GetSize ()
         {
-            return sizeof (float) * 10 + sizeof (int) * 3;
+            return sizeof (float) * 12;
         }
     }
 }

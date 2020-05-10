@@ -7,16 +7,25 @@ public enum Operation {Union, Substract, Intersect, Blend}
 
 public class RayShape : MonoBehaviour
 {
+    public ShapeType _shapeType = ShapeType.Sphere;
+    public ShapeType shapeType
+    {
+        set
+        {
+            scaleWasChangedManually = false;
+            _shapeType = value;
+        }
+        get
+        {
+            return _shapeType;
+        }
+    }
 
-    
-
-    public ShapeType shapeType;
     public Operation operation;
     public Color color = Color.white;
+
     [Range(0,1)]
     public float blendStrength;
-    [HideInInspector]
-    public int numChildren;
 
     public Vector3 Position
     {
@@ -26,15 +35,36 @@ public class RayShape : MonoBehaviour
         }
     }
 
-    public Vector3 Scale = new Vector3(1, 0, 0);
-    // public Vector3 Scale {
-    //     get {
-    //         Vector3 parentScale = Vector3.one;
-    //         if (transform.parent != null && transform.parent.GetComponent<RayShape>() != null)
-    //         {
-    //             parentScale = transform.parent.GetComponent<RayShape>().Scale;
-    //         }
-    //         return Vector3.Scale(transform.localScale, parentScale);
-    //     }
-    // }
+    bool scaleWasChangedManually;
+    public Vector3 scale = new Vector3(0.5f, 0.5f, 0.5f);
+    public Vector3 Scale
+    {
+        set
+        {
+            scaleWasChangedManually = true;
+            scale = value;
+        }
+        get
+        {
+            if(!scaleWasChangedManually) return GetScale();
+            return scale;
+        }
+    }
+
+    Vector3 GetScale()
+    {
+        switch(shapeType)
+        {
+            case ShapeType.Sphere:
+                return new Vector3(0.5f, 0, 0);
+            case ShapeType.Cube:
+                return new Vector3(0.5f , 0.5f, 0.5f);
+            case ShapeType.Torus:
+                return new Vector3(0.7f , 0.3f, 0);
+            case ShapeType.Prism:
+                return new Vector3(0.5f , 0.5f, 0);
+            
+        }
+        return new Vector3(0.5f , 0.5f, 0.5f);
+    }
 }

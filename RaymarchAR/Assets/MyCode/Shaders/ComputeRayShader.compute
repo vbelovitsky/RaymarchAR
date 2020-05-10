@@ -22,7 +22,6 @@ struct Shape
     int shapeType;
     int operation;
     float blendStrength;
-    int numChildren;
 };
 
 StructuredBuffer<Shape> shapes;
@@ -162,7 +161,6 @@ float4 SceneInfo(float3 eye)
     
     for (int i = 0; i < numShapes; i ++) {
         Shape shape = shapes[i];
-        int numChildren = shape.numChildren;
 
         float localDst = GetShapeDistance(shape,eye);
         float3 localColour = shape.colour;

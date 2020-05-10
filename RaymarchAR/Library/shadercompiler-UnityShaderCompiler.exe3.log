@@ -3,3 +3,9 @@ Cmd: initializeCompiler
 Cmd: compileComputeKernel
   error: 1 plat 4 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
   api=4 insize=7039 outsize=20972 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 9 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
+  api=9 insize=6971 outsize=47357 ok=1
+Unhandled exception: Protocol error - unexpected end of data (did the Editor crash?)
+
+Quitting shader compiler process

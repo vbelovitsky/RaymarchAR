@@ -56,14 +56,13 @@
      <Compile Include="Assets\MyCode\Scripts\BlendSlider.cs" />
      <Compile Include="Assets\MyCode\Scripts\ColorSlider.cs" />
      <Compile Include="Assets\MyCode\Scripts\ComputeRayScript.cs" />
-     <Compile Include="Assets\MyCode\Scripts\RayScript.cs" />
      <Compile Include="Assets\MyCode\Scripts\RayShape.cs" />
-     <Compile Include="Assets\MyCode\Scripts\SceneViewFilter.cs" />
-     <Compile Include="Assets\MyCode\Scripts\ShapeDataHolder.cs" />
      <Compile Include="Assets\MyCode\Scripts\ShapeOperationDrop.cs" />
      <Compile Include="Assets\MyCode\Scripts\ShapePanelManager.cs" />
      <Compile Include="Assets\MyCode\Scripts\ShapePanelOpener.cs" />
      <Compile Include="Assets\MyCode\Scripts\ShapeTypeDrop.cs" />
+     <Compile Include="Assets\MyCode\Scripts\SizeInput.cs" />
+     <Compile Include="Assets\MyCode\Scripts\SizePanelManager.cs" />
      <None Include="Assets\MyCode\Shaders\RayShader.shader" />
      <None Include="Assets\MyCode\Shaders\WireframeTransparent.shader" />
      <None Include="Assets\MyCode\Shaders\Transparent.shader" />
