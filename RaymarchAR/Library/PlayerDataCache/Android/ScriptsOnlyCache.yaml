@@ -1443,4 +1443,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/User/A/Education/_FCS/_Project/testAR.apk
+  playerPath: C:/Users/User/A/Education/_FCS/_Project/RaymarchAR.apk

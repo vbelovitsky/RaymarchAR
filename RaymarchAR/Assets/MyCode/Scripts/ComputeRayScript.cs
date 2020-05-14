@@ -53,7 +53,7 @@ public class ComputeRayScript : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        Screen.SetResolution(240, 135, true);
+        Screen.SetResolution(400, 240, true);
     }
 
     /// <summary>

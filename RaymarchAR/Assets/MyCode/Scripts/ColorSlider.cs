@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class ColorSlider : MonoBehaviour
 {
-    // Slider components
+
     public Slider slider;
     public Image sliderHandle;
-    public Image sliderBackGround;
+    public Image sliderBackground;
  
-    Texture2D colorTex;
+    Texture2D colorTexture;
 
     RayShape currentShape;
 
     void Awake()
     {
-        colorTex = ColorStrip(360);
+        colorTexture = CreateColorTexture(360);
 
-        Rect rect = new Rect(0, 0, colorTex.width, colorTex.height);
+        Rect rect = new Rect(0, 0, colorTexture.width, colorTexture.height);
 
-        sliderBackGround.sprite = Sprite.Create(colorTex, rect, rect.center);
+        sliderBackground.sprite = Sprite.Create(colorTexture, rect, rect.center);
 
         slider.onValueChanged.AddListener(OnValueChanged);
     }
@@ -35,14 +35,14 @@ public class ColorSlider : MonoBehaviour
         slider.value = hue;
     }
  
-    private void OnValueChanged(float value)
+    void OnValueChanged(float value)
     {
         Color color = Color.HSVToRGB(value, 1, 1);
         sliderHandle.color = color;
         currentShape.color = color;
     }
  
-    private Texture2D ColorStrip (int density)
+    Texture2D CreateColorTexture (int density)
     {
         Texture2D hueTex = new Texture2D (density, 1);
  

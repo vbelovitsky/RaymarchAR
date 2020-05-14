@@ -63,13 +63,8 @@
      <Compile Include="Assets\MyCode\Scripts\ShapeTypeDrop.cs" />
      <Compile Include="Assets\MyCode\Scripts\SizeInput.cs" />
      <Compile Include="Assets\MyCode\Scripts\SizePanelManager.cs" />
-     <None Include="Assets\MyCode\Shaders\RayShader.shader" />
-     <None Include="Assets\MyCode\Shaders\WireframeTransparent.shader" />
-     <None Include="Assets\MyCode\Shaders\Transparent.shader" />
+     <None Include="Assets\StreamingAssets\Vuforia\RaymarchAR.xml" />
      <None Include="Assets\MyCode\Shaders\ComputeRayShader.compute" />
-     <None Include="Assets\StreamingAssets\Vuforia\Raymarch.xml" />
-     <None Include="Assets\MyCode\Shaders\Wireframe.cginc" />
-     <None Include="Assets\MyCode\Shaders\FullTransparent_Old.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/User/A/Education/_FCS/_Project/ProjectRepository/RaymarchAR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

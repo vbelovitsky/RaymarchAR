@@ -1,10 +1,4 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2019.3.0a8/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.3.0a8/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
 Cmd: compileComputeKernel
-  error: 1 plat 4 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
-  api=4 insize=7064 outsize=20522 ok=1
-Cmd: compileComputeKernel
-  error: 1 plat 9 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
-  api=9 insize=7065 outsize=46479 ok=1
-Cmd: compileComputeKernel
-  api=9 insize=6776 outsize=46479 ok=1
+  api=4 insize=6703 outsize=20502 ok=1

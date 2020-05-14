@@ -33,34 +33,34 @@ StructuredBuffer<Shape> shapes;
 int shapesNumber;
 
 
-float SphereDistance(float3 eye, float3 centre, float radius)
+float SphereSDF(float3 p, float3 centre, float radius)
 {
-    return distance(eye, centre) - radius;
+    return distance(p, centre) - radius;
 }
 
-float CubeDistance(float3 eye, float3 centre, float3 size)
+float CubeSDF(float3 p, float3 centre, float3 size)
 {
-    float3 o = abs(eye-centre) -size;
-    float ud = length(max(o,0));
-    float n = max(max(min(o.x,0),min(o.y,0)), min(o.z,0));
-    return ud+n;
+    float3 o = abs(p - centre) - size;
+    float ud = length(max(o, 0));
+    float n = max(max(min(o.x, 0), min(o.y, 0)), min(o.z, 0));
+    return ud + n;
 }
 
-float TorusDistance(float3 eye, float3 centre, float r1, float r2)
+float TorusSDF(float3 p, float3 centre, float r1, float r2)
 {   
-    float2 q = float2(length((eye-centre).xz)-r1,eye.y-centre.y);
+    float2 q = float2(length((p-centre).xz)-r1, p.y-centre.y);
     return length(q)-r2;
 }
 
-float PrismDistance(float3 eye, float3 centre, float2 h)
+float PrismSDF(float3 p, float3 centre, float2 h)
 {
-    float3 q = abs(eye-centre);
-    return max(q.z-h.y,max(q.x*0.866025+eye.y*0.5,-eye.y)-h.x*0.5);
+    float3 q = abs(p-centre);
+    return max(q.z-h.y,max(q.x*0.866025+p.y*0.5,-p.y)-h.x*0.5);
 }
 
-float CylinderDistance(float3 eye, float3 centre, float2 h)
+float CylinderSDF(float3 p, float3 centre, float2 h)
 {
-    float2 d = abs(float2(length((eye).xz), eye.y)) - h;
+    float2 d = abs(float2(length((p).xz), p.y)) - h;
     return length(max(d,0.0)) + max(min(d.x,0),min(d. y,0));
 }
 
@@ -96,7 +96,8 @@ float4 Combine(float dstA, float dstB, float3 colorA, float3 colorB, int operati
 
     // Union
     if (operation == 0) {
-        if (dstB < dstA) {
+        // min(a, b)
+        if (dstB < dst) {
             dst = dstB;
             color = colorB;
         }
@@ -127,33 +128,33 @@ float4 Combine(float dstA, float dstB, float3 colorA, float3 colorB, int operati
     return float4(color,dst);
 }
 
-float GetShapeDistance(Shape shape, float3 eye)
+float GetShapeDst(Shape shape, float3 p)
 {
     if (shape.shapeType == 0)
     {
-        return SphereDistance(eye, shape.position, shape.size.x);
+        return SphereSDF(p, shape.position, shape.size.x);
     }
     else if (shape.shapeType == 1)
     {
-        return CubeDistance(eye, shape.position, shape.size);
+        return CubeSDF(p, shape.position, shape.size);
     }
     else if (shape.shapeType == 2)
     {
-        return TorusDistance(eye, shape.position, shape.size.x, shape.size.y);
+        return TorusSDF(p, shape.position, shape.size.x, shape.size.y);
     }
     else if(shape.shapeType == 3)
     {
-        return PrismDistance(eye, shape.position, shape.size.xy);
+        return PrismSDF(p, shape.position, shape.size.xy);
     }
     else if(shape.shapeType == 4)
     {
-        return CylinderDistance(eye, shape.position, shape.size.xy);
+        return CylinderSDF(p, shape.position, shape.size.xy);
     }
 
     return maxDst;
 }
 
-float4 SceneDst(float3 eye)
+float4 SceneDst(float3 p)
 {
     float globalDst = maxDst;
     float3 globalColor = 1;
@@ -161,7 +162,7 @@ float4 SceneDst(float3 eye)
     for (int i = 0; i < shapesNumber; i ++) {
         Shape shape = shapes[i];
 
-        float localDst = GetShapeDistance(shape,eye);
+        float localDst = GetShapeDst(shape, p);
         float3 localColor = shape.color;
         
         float4 globalCombined = Combine(globalDst, localDst, globalColor, localColor, shape.operation, shape.blendStrength);
@@ -211,9 +212,8 @@ void RayMarching(uint3 id, uint width, uint height)
 
     Ray ray = CreateCameraRay(uv);
     int marchSteps = 0;
-    //rayDst < maxDst &&
-    //marchSteps < maxSteps
-    while (rayDst < maxDst)
+
+    while (marchSteps < maxSteps && rayDst < maxDst)
     {
         marchSteps++;
         float4 sceneDst = SceneDst(ray.origin);
