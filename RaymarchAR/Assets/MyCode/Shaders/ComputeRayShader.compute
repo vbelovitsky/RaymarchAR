@@ -33,32 +33,32 @@ StructuredBuffer<Shape> shapes;
 int shapesNumber;
 
 
-float SphereSDF(float3 p, float3 centre, float radius)
+float SphereSDF(float3 p, float3 center, float radius)
 {
-    return distance(p, centre) - radius;
+    return distance(p, center) - radius;
 }
 
-float CubeSDF(float3 p, float3 centre, float3 size)
+float CubeSDF(float3 p, float3 center, float3 size)
 {
-    float3 o = abs(p - centre) - size;
+    float3 o = abs(p - center) - size;
     float ud = length(max(o, 0));
     float n = max(max(min(o.x, 0), min(o.y, 0)), min(o.z, 0));
     return ud + n;
 }
 
-float TorusSDF(float3 p, float3 centre, float r1, float r2)
+float TorusSDF(float3 p, float3 center, float r1, float r2)
 {   
-    float2 q = float2(length((p-centre).xz)-r1, p.y-centre.y);
+    float2 q = float2(length((p-center).xz)-r1, p.y-center.y);
     return length(q)-r2;
 }
 
-float PrismSDF(float3 p, float3 centre, float2 h)
+float PrismSDF(float3 p, float3 center, float2 h)
 {
-    float3 q = abs(p-centre);
+    float3 q = abs(p-center);
     return max(q.z-h.y,max(q.x*0.866025+p.y*0.5,-p.y)-h.x*0.5);
 }
 
-float CylinderSDF(float3 p, float3 centre, float2 h)
+float CylinderSDF(float3 p, float3 center, float2 h)
 {
     float2 d = abs(float2(length((p).xz), p.y)) - h;
     return length(max(d,0.0)) + max(min(d.x,0),min(d. y,0));
