@@ -4,6 +4,8 @@ ScriptsOnlyBuild:
     - BlendSlider
     - ColorSlider
     - ComputeRayScript
+    - InfoPanelOpener
+    - LinkOpener
     - RayShape
     - ShapeOperationDrop
     - ShapePanelManager
@@ -11,9 +13,13 @@ ScriptsOnlyBuild:
     - ShapeTypeDrop
     - SizeInput
     - SizePanelManager
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -57,6 +63,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 72
       Script: {instanceID: 0}
     - Class: 81
@@ -67,66 +75,80 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 109
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10864}
+      Script: {instanceID: 10886}
     - Class: 114
-      Script: {instanceID: 10882}
+      Script: {instanceID: 10904}
     - Class: 114
-      Script: {instanceID: 11040}
+      Script: {instanceID: 10972}
     - Class: 114
-      Script: {instanceID: 11042}
+      Script: {instanceID: 11064}
     - Class: 114
-      Script: {instanceID: 11080}
+      Script: {instanceID: 11066}
     - Class: 114
-      Script: {instanceID: 11254}
+      Script: {instanceID: 11104}
     - Class: 114
-      Script: {instanceID: 11356}
+      Script: {instanceID: 11278}
     - Class: 114
-      Script: {instanceID: 11376}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11442}
+      Script: {instanceID: 11400}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11488}
     - Class: 114
-      Script: {instanceID: 11528}
+      Script: {instanceID: 11508}
     - Class: 114
-      Script: {instanceID: 11574}
+      Script: {instanceID: 11518}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 11552}
     - Class: 114
-      Script: {instanceID: 11604}
+      Script: {instanceID: 11598}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 11620}
     - Class: 114
-      Script: {instanceID: 11826}
+      Script: {instanceID: 11628}
     - Class: 114
-      Script: {instanceID: 12012}
+      Script: {instanceID: 11630}
     - Class: 114
-      Script: {instanceID: 12016}
+      Script: {instanceID: 11850}
     - Class: 114
-      Script: {instanceID: 12018}
+      Script: {instanceID: 12036}
     - Class: 114
-      Script: {instanceID: 12204}
+      Script: {instanceID: 12040}
     - Class: 114
-      Script: {instanceID: 12208}
+      Script: {instanceID: 12042}
     - Class: 114
-      Script: {instanceID: 12254}
+      Script: {instanceID: 12098}
     - Class: 114
-      Script: {instanceID: 12482}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12588}
+      Script: {instanceID: 12234}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12260}
     - Class: 114
-      Script: {instanceID: 12898}
+      Script: {instanceID: 12276}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12280}
+    - Class: 114
+      Script: {instanceID: 12508}
+    - Class: 114
+      Script: {instanceID: 12614}
+    - Class: 114
+      Script: {instanceID: 12658}
+    - Class: 114
+      Script: {instanceID: 12782}
     - Class: 114
       Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12934}
+    - Class: 114
+      Script: {instanceID: 12950}
+    - Class: 114
+      Script: {instanceID: 12970}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -180,6 +202,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 445c58c7241bd0a6ed24e657002a818d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InfoPanelOpener
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -818,7 +846,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 8296f2042cc1a1b71766d3a71ccb804c
+      Hash: 50038677f2fe8c7be29f980c16bb1121
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ColorSlider
@@ -828,6 +856,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: a25a9c27787e3c10bc77ede034320071
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LinkOpener
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a

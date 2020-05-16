@@ -12,6 +12,7 @@ TagManager:
   - ColorSlider
   - SizePanel
   - SizeInput
+  - InfoPanel
   layers:
   - Default
   - TransparentFX
