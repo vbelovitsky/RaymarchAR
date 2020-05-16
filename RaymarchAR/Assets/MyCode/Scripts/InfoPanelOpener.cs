@@ -14,5 +14,4 @@ public class InfoPanelOpener : MonoBehaviour
             InfoPanel.SetActive(!InfoPanel.activeSelf);
         }
     }
-
 }

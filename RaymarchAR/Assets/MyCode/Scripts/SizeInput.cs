@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SizeInput : MonoBehaviour
 {
-    
     public int Index = 0;
 
     InputField input;
@@ -43,5 +42,4 @@ public class SizeInput : MonoBehaviour
         currentShape = shape;
         input.text = shape.Scale[Index].ToString("g4");
     }
-
 }

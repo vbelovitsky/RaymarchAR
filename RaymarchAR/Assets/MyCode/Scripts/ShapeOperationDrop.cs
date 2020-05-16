@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class ShapeOperationDrop : MonoBehaviour
 {
-
     Dropdown dropdown;
     RayShape currentShape;
 

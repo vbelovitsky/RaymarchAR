@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class ShapePanelOpener : MonoBehaviour
 {
-
     public GameObject ShapePanel;
     public int shapeIndex;
 
@@ -31,13 +29,6 @@ public class ShapePanelOpener : MonoBehaviour
                 }
                 ShapePanel.SetActive(!isActive);
             }
-            
-            
         }
     }
-
-
-
-    
-
 }

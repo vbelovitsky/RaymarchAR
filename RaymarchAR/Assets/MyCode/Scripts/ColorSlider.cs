@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ColorSlider : MonoBehaviour
 {
-
     public Slider slider;
     public Image sliderHandle;
     public Image sliderBackground;

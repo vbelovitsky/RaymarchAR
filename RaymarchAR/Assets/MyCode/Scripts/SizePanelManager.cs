@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SizePanelManager : MonoBehaviour
 {
-    
     GameObject Panel;
 
     RayShape currentShape;

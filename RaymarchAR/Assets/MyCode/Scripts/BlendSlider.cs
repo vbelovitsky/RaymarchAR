@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class BlendSlider : MonoBehaviour
 {
-    
     public Slider slider;
 
     RayShape currentShape;
@@ -25,6 +24,4 @@ public class BlendSlider : MonoBehaviour
         currentShape = shape;
         slider.value = shape.blendStrength;
     }
-
-
 }

@@ -6,7 +6,6 @@ using Vuforia;
 
 public class ShapePanelManager : MonoBehaviour
 {
-
     GameObject Panel;
     public int Index { get; set; }
 
@@ -39,7 +38,6 @@ public class ShapePanelManager : MonoBehaviour
         }
     }
 
-
     public void SetData(int index)
     {
         if(Panel == null)
@@ -62,6 +60,4 @@ public class ShapePanelManager : MonoBehaviour
         stp.SetSizePanel(spm);
 
     }
-
-    
 }

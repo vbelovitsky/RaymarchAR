@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LinkOpener : MonoBehaviour
 {
-
     public string link = "https://github.com/vbelovitsky/RaymarchAR/tree/master/QR-codes";
 
     public void OpenLink()
