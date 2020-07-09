@@ -175,9 +175,9 @@ float4 SceneDst(float3 p)
 
 float3 CalculateNormal(float3 p)
 {
-    float x = SceneDst(float3(p.x+epsilon,p.y,p.z)).w - SceneDst(float3(p.x-epsilon,p.y,p.z)).w;
-    float y = SceneDst(float3(p.x,p.y+epsilon,p.z)).w - SceneDst(float3(p.x,p.y-epsilon,p.z)).w;
-    float z = SceneDst(float3(p.x,p.y,p.z+epsilon)).w - SceneDst(float3(p.x,p.y,p.z-epsilon)).w;
+    float x = SceneDst(float3(p.x+epsilon, p.y,p.z)).w - SceneDst(float3(p.x-epsilon, p.y, p.z)).w;
+    float y = SceneDst(float3(p.x, p.y+epsilon, p.z)).w - SceneDst(float3(p.x, p.y-epsilon, p.z)).w;
+    float z = SceneDst(float3(p.x, p.y, p.z+epsilon)).w - SceneDst(float3(p.x, p.y, p.z-epsilon)).w;
     return normalize(float3(x,y,z));
 }
 
@@ -225,7 +225,9 @@ void RayMarching(uint3 id, uint width, uint height)
             float3 normal = CalculateNormal(pointOnSurface - ray.direction * epsilon);
             
             float3 lightDir = -_Light;
-            float lighting = saturate(saturate(dot(normal,lightDir)));
+            float lighting = saturate(saturate(dot(normal, lightDir)));
+
+            // Color
             float3 col = sceneDst.xyz;
             
             // Shadow
